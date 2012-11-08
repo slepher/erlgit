@@ -3,6 +3,7 @@
 -export([download/2, download/3,
 
          clone/2, clone/3,
+         init/1,
          fetch/1,
          checkout/2, checkout/3,
 
@@ -89,6 +90,9 @@ clone(RepoURL, RepoPath, Opts) ->
 
 clone_cmd(RepoURL, RepoPath, Opts) ->
     fformat("git clone ~s \"~s\" \"~s\"", [opts(Opts), RepoURL, RepoPath]).
+
+init(RepoPath) ->
+    sh("git init").
 
 %% @doc Fetches recent changes from repo.
 %% @throws {unable_to_checkout, Reason}
