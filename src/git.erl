@@ -92,7 +92,7 @@ clone_cmd(RepoURL, RepoPath, Opts) ->
     fformat("git clone ~s \"~s\" \"~s\"", [opts(Opts), RepoURL, RepoPath]).
 
 init(RepoPath) ->
-    sh("git init \"~s\"", [RepoPath]).
+    sh(fformat("git init \"~s\"", [RepoPath]), []).
 
 %% @doc Fetches recent changes from repo.
 %% @throws {unable_to_checkout, Reason}
